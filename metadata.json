@@ -1,0 +1,6 @@
+{
+  "name": "ONYIITEX Construction Company",
+  "description": "General Contractor in Awka, Anambra State offering new home construction, commercial projects, renovations, and general construction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #2563EB;
+  --color-brand-charcoal: #0F172A;
+  --color-brand-dark-gray: #334155;
+  --color-brand-medium-gray: #64748B;
+  --color-brand-light-gray: #F8FAFC;
+  --color-brand-border: #E2E8F0;
+
+  --font-oswald: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-open-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-open-sans text-brand-dark-gray bg-[#F8FAFC];
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-oswald text-brand-charcoal;
+  }
+}
