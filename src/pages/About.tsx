@@ -1,63 +1,36 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { MapPin, Target, Eye, ShieldCheck, Users, Trophy, Building2, Phone } from 'lucide-react';
+import { MapPin, Target, Eye, ShieldCheck, Users, HardHat, Building2, Phone, Compass, CheckCircle2 } from 'lucide-react';
 import { SectionHeading } from '../components/SectionHeading';
-import onyiiImg from '../assets/images/onyii.jpg';
-
-function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number, duration?: number, suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (inView) {
-      let startTime: number;
-      let animationFrame: number;
-
-      const updateCounter = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const progress = timestamp - startTime;
-        
-        if (progress < duration) {
-          setCount(Math.min(end, Math.floor((progress / duration) * end)));
-          animationFrame = requestAnimationFrame(updateCounter);
-        } else {
-          setCount(end);
-        }
-      };
-
-      animationFrame = requestAnimationFrame(updateCounter);
-
-      return () => cancelAnimationFrame(animationFrame);
-    }
-  }, [inView, end, duration]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
+import { AnimatedCounter } from '../components/AnimatedCounter';
 
 export function About() {
   return (
     <div className="w-full">
       {/* 1. PAGE BANNER */}
-      <section className="relative py-24 bg-brand-charcoal">
-        <div className="absolute inset-0 z-0 opacity-40">
+      <section className="relative py-20 bg-brand-charcoal overflow-hidden text-center">
+        <div className="absolute inset-0 z-0">
            <img 
-             src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1600" 
-             className="w-full h-full object-cover" 
-             alt="Construction site in Awka, Anambra State" 
+             src="/images/matrock/MP3.PNG" 
+             className="w-full h-full object-cover object-center brightness-[0.28]" 
+             alt="MATROCK Engineering Construction Site in Anambra State" 
            />
+           <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/50 to-transparent"></div>
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <h1 className="font-oswald text-4xl sm:text-5xl font-bold text-white uppercase tracking-wide">
-              ABOUT US
+            <span className="text-xs uppercase tracking-[0.25em] text-brand-orange font-oswald font-semibold mb-2 inline-block">
+              CORPORATE PROFILE
+            </span>
+            <h1 className="font-oswald text-4xl sm:text-5xl md:text-6xl font-bold !text-white uppercase tracking-wide mb-2">
+              ABOUT MATROCK ENGINEERING
             </h1>
-            <div className="flex items-center justify-center gap-2 mt-4 text-brand-light-gray font-oswald text-sm tracking-widest uppercase">
+            <div className="flex items-center justify-center gap-2 text-slate-300 font-oswald text-xs tracking-widest uppercase">
               <Link to="/" className="hover:text-brand-orange transition-colors">HOME</Link>
               <span>/</span>
               <span className="text-brand-orange">ABOUT US</span>
@@ -66,55 +39,58 @@ export function About() {
         </div>
       </section>
 
-      {/* 2. COMPANY OVERVIEW - LOCAL SEO FOCUS */}
-      <section className="py-24 bg-white">
+      {/* 2. COMPANY OVERVIEW */}
+      <section className="py-20 bg-white">
         <motion.div 
-          initial={{ opacity: 0, y: 40 }} 
+          initial={{ opacity: 0, y: 35 }} 
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true, margin: "-50px" }} 
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div className="lg:w-1/2 w-full">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" 
-                  alt="ONYIITEX Construction Company Ltd - Awka, Anambra State" 
-                  className="rounded-lg shadow-xl w-full object-cover h-[500px]"
+                  src="/images/matrock/MP6.PNG" 
+                  alt="MATROCK Engineering Company Nig Ltd - Awka, Anambra State" 
+                  className="rounded-2xl shadow-xl w-full object-cover object-center h-[420px] sm:h-[460px]"
                 />
-                <div className="absolute -bottom-8 -right-8 bg-brand-orange text-white p-8 rounded-lg shadow-xl hidden md:block">
-                  <p className="font-oswald text-4xl font-bold mb-1">10+</p>
-                  <p className="font-medium uppercase tracking-wider text-sm">Years in Anambra</p>
+                <div className="absolute -bottom-5 -right-5 bg-brand-charcoal text-white p-5 rounded-2xl shadow-xl hidden sm:block border-2 border-brand-orange">
+                  <span className="font-oswald text-2xl font-bold text-brand-orange block">AWKA</span>
+                  <span className="text-[11px] uppercase tracking-wider text-slate-300 font-medium">Headquarters</span>
                 </div>
               </div>
             </div>
             
             <div className="lg:w-1/2">
-              <h2 className="font-oswald text-3xl sm:text-4xl font-bold text-brand-charcoal uppercase tracking-wide mb-6">
-                PREMIER CONSTRUCTION COMPANY IN AWKA, ANAMBRA STATE
+              <span className="text-xs uppercase tracking-[0.2em] font-oswald text-brand-orange font-semibold block mb-2">
+                INDIGENOUS ENGINEERING EXCELLENCE
+              </span>
+              <h2 className="font-oswald text-2xl sm:text-4xl font-bold text-brand-charcoal uppercase tracking-wide mb-3 leading-tight">
+                CIVIL & STRUCTURAL ENGINEERING IN AWKA, ANAMBRA STATE
               </h2>
-              <div className="w-20 h-1 bg-brand-orange mb-8"></div>
+              <div className="w-14 h-1 bg-brand-orange mb-6"></div>
               
-              <div className="space-y-6 text-brand-medium-gray text-lg leading-relaxed">
+              <div className="space-y-4 text-brand-medium-gray text-sm sm:text-base leading-relaxed font-light">
                 <p>
-                  <strong>ONYIITEX CONSTRUCTION COMPANY LTD</strong> is a leading indigenous building and civil engineering construction firm headquartered at <strong>153 Ziks Avenue, Awka 420109, Anambra State, Nigeria</strong>. 
+                  <strong>MATROCK ENGINEERING COMPANY NIG LTD</strong> is an indigenous civil and structural engineering construction contractor headquartered at <strong>153 Ziks Avenue, Awka 420109, Anambra State, Nigeria</strong>.
                 </p>
                 <p>
-                  We specialize in delivering high-quality residential, commercial, and industrial construction projects across Nigeria. As local experts in the Anambra State construction landscape, we understand the unique environmental, logistical, and structural requirements needed to build enduring properties in our region.
+                  We execute building construction, reinforced concrete frame engineering, commercial plazas, residential developments, and substructure civil works. Grounded in Anambra State, we bring technical precision and environmental awareness to every site, accounting for regional soil characteristics, hydrological conditions, and structural load calculations.
                 </p>
                 <p>
-                  From concept and architectural design to full-scale general building construction and renovations, our dedicated team of engineers, architects, and builders are committed to turning your vision into a concrete reality.
+                  Every phase—from initial site setting-out and foundation earthworks to decking reinforcement and roof truss erection—is directed with strict engineering oversight, safety protocols, and certified building materials.
                 </p>
               </div>
 
-              <div className="mt-10 flex items-center gap-4">
-                <div className="bg-brand-charcoal p-4 rounded-full text-brand-orange">
-                  <MapPin size={28} />
+              <div className="mt-7 flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div className="bg-brand-charcoal p-3 rounded-lg text-brand-orange shrink-0">
+                  <MapPin size={22} />
                 </div>
                 <div>
-                  <h4 className="font-oswald text-xl font-bold text-brand-charcoal tracking-wide mb-1">PROUDLY LOCAL</h4>
-                  <p className="text-brand-medium-gray">Serving Awka, Onitsha, Nnewi, and all of Nigeria.</p>
+                  <h4 className="font-oswald text-sm font-bold text-brand-charcoal tracking-wide uppercase">STATE-WIDE OPERATIONAL REACH</h4>
+                  <p className="text-brand-medium-gray text-xs font-light">Active project operations across Awka, Onitsha, Nnewi, and throughout Nigeria.</p>
                 </div>
               </div>
             </div>
@@ -122,61 +98,61 @@ export function About() {
         </motion.div>
       </section>
 
-      {/* 2.5 OUR MILESTONES */}
-      <section className="py-20 bg-brand-charcoal text-white">
+      {/* 2.5 OPERATIONAL BENCHMARKS */}
+      <section className="py-16 bg-brand-petrol text-white border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="font-oswald text-5xl sm:text-6xl font-bold text-brand-orange mb-2">
-                <AnimatedCounter end={150} suffix="+" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.08 }}>
+              <div className="font-oswald text-4xl sm:text-5xl font-bold text-brand-orange mb-1 tabular-nums">
+                <AnimatedCounter end={17} suffix="+" />
               </div>
-              <p className="font-oswald uppercase tracking-wider text-brand-light-gray font-medium">Projects Completed</p>
+              <p className="font-oswald uppercase tracking-wider text-xs sm:text-sm text-slate-200 font-semibold">Documented Site Milestones</p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="font-oswald text-5xl sm:text-6xl font-bold text-brand-orange mb-2">
-                <AnimatedCounter end={10} suffix="+" />
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.16 }}>
+              <div className="font-oswald text-4xl sm:text-5xl font-bold text-brand-orange mb-1 tabular-nums">
+                <AnimatedCounter end={100} suffix="%" />
               </div>
-              <p className="font-oswald uppercase tracking-wider text-brand-light-gray font-medium">Years in Business</p>
+              <p className="font-oswald uppercase tracking-wider text-xs sm:text-sm text-slate-200 font-semibold">Structural Quality Commitment</p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
-              <div className="font-oswald text-5xl sm:text-6xl font-bold text-brand-orange mb-2">
-                <AnimatedCounter end={200} suffix="+" />
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.24 }}>
+              <div className="font-oswald text-4xl sm:text-5xl font-bold text-brand-orange mb-1 tabular-nums">
+                <AnimatedCounter end={100} suffix="%" />
               </div>
-              <p className="font-oswald uppercase tracking-wider text-brand-light-gray font-medium">Satisfied Clients</p>
+              <p className="font-oswald uppercase tracking-wider text-xs sm:text-sm text-slate-200 font-semibold">Regulatory Building Code Adherence</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* 3. MISSION & VISION */}
-      <section className="py-24 bg-brand-light-gray">
+      <section className="py-20 bg-brand-light-gray/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div 
-              initial={{ opacity: 0, y: 40 }} 
+              initial={{ opacity: 0, y: 25 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, margin: "-50px" }} 
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white p-10 rounded-2xl shadow-sm border border-brand-border/50 hover:border-brand-orange/30 transition-colors"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white p-8 sm:p-10 rounded-2xl shadow-xs border border-brand-border hover:border-brand-orange/40 transition-colors"
             >
-              <Target size={48} className="text-brand-orange mb-6" />
-              <h3 className="font-oswald text-2xl font-bold text-brand-charcoal uppercase tracking-wide mb-4">Our Mission</h3>
-              <p className="text-brand-medium-gray text-lg leading-relaxed">
-                To provide top-tier, reliable, and cost-effective construction services in Nigeria. We aim to build sustainable infrastructures that exceed our clients' expectations by leveraging innovative building technologies, local expertise, and an unwavering commitment to quality and safety.
+              <Target size={36} className="text-brand-orange mb-3" />
+              <h3 className="font-oswald text-xl sm:text-2xl font-bold text-brand-charcoal uppercase tracking-wide mb-2.5">Our Mission</h3>
+              <p className="text-brand-medium-gray text-sm sm:text-base leading-relaxed font-light">
+                To deliver dependable, structurally sound, and cost-efficient civil engineering and building construction services across Nigeria. We construct sustainable structures that meet exact client specifications through disciplined technical oversight, certified construction inputs, and an uncompromising commitment to structural safety.
               </p>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 40 }} 
+              initial={{ opacity: 0, y: 25 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, margin: "-50px" }} 
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-brand-charcoal p-10 rounded-2xl shadow-xl border border-white/10"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-brand-charcoal p-8 sm:p-10 rounded-2xl shadow-xl border border-white/10"
             >
-              <Eye size={48} className="text-brand-orange mb-6" />
-              <h3 className="font-oswald text-2xl font-bold text-white uppercase tracking-wide mb-4">Our Vision</h3>
-              <p className="text-brand-light-gray/90 text-lg leading-relaxed font-light">
-                To be the most trusted and sought-after construction company in Anambra State and across Nigeria, recognized for our integrity, architectural excellence, and dedication to shaping the modern Nigerian skyline.
+              <Eye size={36} className="text-brand-orange mb-3" />
+              <h3 className="font-oswald text-xl sm:text-2xl font-bold !text-white uppercase tracking-wide mb-2.5">Our Vision</h3>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+                To stand as a foremost benchmark of civil engineering excellence and construction integrity in Anambra State and across Nigeria, renowned for structural reliability, technical precision, and enduring architectural craftsmanship.
               </p>
             </motion.div>
           </div>
@@ -184,95 +160,99 @@ export function About() {
       </section>
 
       {/* 4. CORE VALUES */}
-      <section className="py-24 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="OUR CORE VALUES" subtitle="The principles that guide every brick we lay." />
+          <SectionHeading title="OUR GUIDING PRINCIPLES" subtitle="The engineering and ethical standards that underpin every structure we build." />
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
             {[
               {
-                icon: <ShieldCheck size={36} />,
-                title: "INTEGRITY & TRUST",
-                desc: "We believe in honest, transparent communication. Our reputation in Awka is built on delivering exactly what we promise, on time and within budget."
+                icon: <ShieldCheck size={30} />,
+                title: "TECHNICAL INTEGRITY",
+                desc: "We enforce accurate concrete mix ratios, correct reinforcement diameters, and strict curing cycles to ensure structures perform safely throughout their lifespan."
               },
               {
-                icon: <Trophy size={36} />,
-                title: "UNYIELDING QUALITY",
-                desc: "From sourcing the best local materials in Nigeria to employing skilled artisans, we never compromise on the structural integrity of our buildings."
+                icon: <Compass size={30} />,
+                title: "ENGINEERING DISCIPLINE",
+                desc: "No cutting corners. From soil foundation analysis to roof truss anchoring, every step follows verified engineering standards and building codes."
               },
               {
-                icon: <Users size={36} />,
-                title: "CLIENT-CENTRIC APPROACH",
-                desc: "Your vision is our blueprint. We work closely with our clients throughout the entire construction lifecycle to ensure complete satisfaction."
+                icon: <Users size={30} />,
+                title: "CLIENT TRANSPARENCY",
+                desc: "We prioritize honest milestone updates, detailed bills of quantities, and direct communication to foster mutual trust on every project."
               }
             ].map((value, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 40 }} 
+                initial={{ opacity: 0, y: 25 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true, margin: "-50px" }} 
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="text-center p-8 bg-brand-light-gray rounded-xl"
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                className="text-center p-8 bg-slate-50/70 rounded-xl border border-slate-200"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white text-brand-orange mb-6 shadow-sm">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white text-brand-orange mb-4 shadow-xs border border-slate-200">
                   {value.icon}
                 </div>
-                <h4 className="font-oswald text-xl font-bold text-brand-charcoal uppercase tracking-wide mb-4">{value.title}</h4>
-                <p className="text-brand-medium-gray leading-relaxed">{value.desc}</p>
+                <h4 className="font-oswald text-base font-bold text-brand-charcoal uppercase tracking-wide mb-2">{value.title}</h4>
+                <p className="text-brand-medium-gray text-xs sm:text-sm leading-relaxed font-light">{value.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      
-      {/* 4.5 OUR TEAM */}
-      <section className="py-24 bg-brand-light-gray/50">
+      {/* 4.5 MULTIDISCIPLINARY ENGINEERING DIVISIONS */}
+      <section className="py-20 bg-brand-light-gray/40 border-t border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="MEET OUR LEADERSHIP" subtitle="The dedicated professionals driving ONYIITEX forward." />
+          <SectionHeading 
+            title="OUR MULTIDISCIPLINARY DIVISIONS" 
+            subtitle="Organized operational units delivering comprehensive civil and structural engineering execution." 
+          />
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {[
               {
-                name: "Engr. Onyeka N.",
-                role: "MD / CEO",
-                image: onyiiImg
+                title: "CIVIL & STRUCTURAL ENGINEERING",
+                role: "Core Design & Calculations",
+                desc: "Specialized in structural design, foundation analysis, and reinforced concrete detailing."
               },
               {
-                name: "Arch. Chidi O.",
-                role: "Project Manager",
-                image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&q=80&w=600"
+                title: "SITE SUPERVISION & INSPECTION",
+                role: "Quality Control On-Site",
+                desc: "Ensures all formwork, rebar spacing, and masonry alignment conform to engineering drawings."
               },
               {
-                name: "Mr. Tunde A.",
-                role: "Safety Officer",
-                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600"
+                title: "QUANTITY SURVEYING & ESTIMATION",
+                role: "Cost Management & BOQ",
+                desc: "Delivers transparent bills of quantities, material schedules, and prudent cost control."
               },
               {
-                name: "Mrs. Ngozi E.",
-                role: "HR Manager",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                title: "PROJECT MANAGEMENT & SAFETY",
+                role: "Resource Scheduling & HSE",
+                desc: "Coordinates trade contractors, delivery schedules, and enforces site health and safety standards."
               }
-            ].map((member, idx) => (
+            ].map((unit, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 40 }} 
+                initial={{ opacity: 0, y: 20 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true, margin: "-50px" }} 
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white border border-brand-border rounded-xl shadow-sm overflow-hidden group hover:shadow-lg transition-all duration-300"
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+                className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
               >
-                <div className="h-64 sm:h-72 overflow-hidden relative">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-brand-charcoal/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                </div>
-                <div className="p-6 text-center border-t-4 border-brand-orange relative">
-                  <h4 className="font-oswald text-xl font-bold text-brand-charcoal uppercase tracking-wide">{member.name}</h4>
-                  <p className="text-brand-medium-gray font-medium mt-1 uppercase tracking-wider text-sm">{member.role}</p>
+                <div>
+                  <div className="w-9 h-9 bg-brand-orange/10 rounded-lg flex items-center justify-center text-brand-orange mb-3 font-oswald font-bold text-xs">
+                    0{idx + 1}
+                  </div>
+                  <h4 className="font-oswald text-sm sm:text-base font-bold text-brand-charcoal uppercase tracking-wide mb-1">
+                    {unit.title}
+                  </h4>
+                  <p className="text-brand-orange font-oswald text-[11px] font-semibold uppercase tracking-wider mb-2.5">
+                    {unit.role}
+                  </p>
+                  <p className="text-brand-medium-gray text-xs leading-relaxed font-light">
+                    {unit.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -281,40 +261,41 @@ export function About() {
       </section>
 
       {/* 5. LOCAL SEO / CTA BANNER */}
-      <section className="relative py-24 bg-brand-charcoal overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
+      <section className="relative py-20 bg-brand-charcoal overflow-hidden text-center">
+        <div className="absolute inset-0 z-0">
            <img 
-             src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80&w=1600" 
-             className="w-full h-full object-cover" 
-             alt="Building Construction in Nigeria" 
+             src="/images/matrock/MP1.PNG" 
+             className="w-full h-full object-cover object-center brightness-[0.2]" 
+             alt="Building Construction in Anambra Nigeria" 
            />
+           <div className="absolute inset-0 bg-brand-charcoal/80"></div>
         </div>
         <motion.div 
-          initial={{ opacity: 0, y: 40 }} 
+          initial={{ opacity: 0, y: 25 }} 
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true, margin: "-50px" }} 
           transition={{ duration: 0.6 }}
-          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <Building2 size={64} className="text-brand-orange mx-auto mb-8" />
-          <h2 className="font-oswald text-3xl sm:text-5xl font-bold text-white uppercase tracking-wide mb-6">
-            READY TO START YOUR PROJECT IN ANAMBRA?
+          <Building2 size={46} className="text-brand-orange mx-auto mb-4" />
+          <h2 className="font-oswald text-3xl sm:text-4xl lg:text-5xl font-bold !text-white uppercase tracking-wide mb-4">
+            DISCUSS YOUR BUILDING PLANS IN ANAMBRA
           </h2>
-          <p className="text-brand-light-gray text-lg sm:text-xl leading-relaxed mb-10 max-w-3xl mx-auto font-light">
-            Visit our head office at <strong>153 Ziks Avenue, Awka 420109</strong>, or give us a call to schedule a consultation with our construction experts.
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-xl mx-auto font-light">
+            Visit our corporate office at <strong>153 Ziks Avenue, Awka 420109</strong>, or speak directly with our engineering team for advice and estimates.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3.5">
              <Link 
                 to="/contact" 
-                className="bg-brand-orange text-white font-oswald font-semibold px-8 py-4 text-lg rounded-lg shadow-sm hover:bg-white hover:text-brand-charcoal transition-colors tracking-tight inline-flex items-center justify-center gap-2"
+                className="bg-brand-orange text-white font-oswald font-semibold px-8 py-3.5 text-sm rounded-lg shadow-sm hover:bg-white hover:text-brand-charcoal transition-all tracking-wider uppercase inline-flex items-center justify-center gap-2"
               >
-                CONTACT US TODAY
+                SCHEDULE A CONSULTATION
               </Link>
               <a 
                 href="tel:08061294537" 
-                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-oswald font-semibold px-8 py-4 text-lg rounded-lg shadow-sm hover:bg-white/20 transition-colors tracking-tight inline-flex items-center justify-center gap-2"
+                className="bg-white/10 border border-white/20 text-white font-oswald font-semibold px-8 py-3.5 text-sm rounded-lg shadow-sm hover:bg-white/20 transition-all tracking-wider uppercase inline-flex items-center justify-center gap-2"
               >
-                <Phone size={20} />
+                <Phone size={16} />
                 0806 129 4537
               </a>
           </div>

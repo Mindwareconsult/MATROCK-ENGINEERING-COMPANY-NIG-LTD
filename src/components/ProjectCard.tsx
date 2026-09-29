@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 
 interface ProjectCardProps {
   key?: React.Key;
@@ -12,38 +13,41 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, category, location, image, link }: ProjectCardProps) {
   return (
-    <div className="group relative overflow-hidden bg-brand-charcoal h-80 w-full cursor-pointer border border-brand-border rounded-2xl shadow-sm">
+    <div className="group relative overflow-hidden bg-brand-charcoal h-72 sm:h-80 w-full cursor-pointer border border-slate-200/90 rounded-xl shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-end">
       {/* Background Image */}
       <img 
         src={image} 
         alt={title} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
       />
       
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+      {/* Refined Deep Teal / Scrim Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/95 via-brand-charcoal/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
       
       {/* Content */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-        <span className="text-brand-orange font-oswald text-xs tracking-wider font-bold mb-2 uppercase">
+      <div className="relative z-10 p-5 sm:p-6 flex flex-col justify-end">
+        <span className="text-brand-orange font-oswald text-[11px] sm:text-xs tracking-widest font-semibold uppercase mb-1.5 block">
           {category}
         </span>
-        <h3 className="text-white font-oswald text-xl sm:text-2xl font-bold mb-1 leading-tight tracking-tight">
+        <h3 className="text-white font-oswald text-lg sm:text-xl font-bold leading-snug tracking-wide line-clamp-2 mb-1.5">
           {title}
         </h3>
+        
         {location && (
-          <p className="text-white/80 text-sm mb-4 font-medium">
-            {location}
-          </p>
+          <div className="flex items-center gap-1.5 text-slate-300 text-xs font-light">
+            <MapPin size={13} className="text-brand-orange shrink-0" />
+            <span className="truncate">{location}</span>
+          </div>
         )}
         
-        {/* View Project Button */}
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 h-0 group-hover:h-auto overflow-hidden mt-2">
+        {/* Action Link */}
+        <div className="pt-3 flex items-center justify-between border-t border-white/10 mt-3">
           <Link 
             to={link}
-            className="inline-block bg-white text-[#0F172A] font-oswald font-semibold text-sm px-6 py-2 rounded-lg transition-colors tracking-tight hover:bg-brand-light-gray"
+            className="text-white group-hover:text-brand-orange font-oswald text-xs font-semibold tracking-wider transition-colors inline-flex items-center gap-1 uppercase"
           >
-            VIEW PROJECT
+            VIEW SITE DETAILS <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
       </div>

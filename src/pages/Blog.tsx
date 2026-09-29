@@ -12,112 +12,114 @@ export function Blog() {
   return (
     <div className="w-full">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[40vh] min-h-[350px] flex items-center justify-center text-center bg-brand-charcoal">
+      <section className="relative h-[44vh] min-h-[360px] flex items-center justify-center text-center bg-brand-charcoal overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1600" 
-            alt="Construction Blog Anambra" 
-            className="w-full h-full object-cover brightness-[0.25]"
+            src="/images/matrock/MP3.PNG" 
+            alt="MATROCK Engineering Construction Insights Anambra" 
+            className="w-full h-full object-cover object-center brightness-[0.25]"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/50 to-transparent"></div>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <BookOpen size={48} className="mx-auto text-brand-orange mb-6" />
-          <motion.h1 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-oswald text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase tracking-wide mb-6"
           >
-            OUR <span className="text-brand-orange">INSIGHTS</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-brand-light-gray max-w-2xl mx-auto font-light leading-relaxed"
-          >
-            Expert advice, local construction costs, and industry news tailored for the Nigerian building landscape.
-          </motion.p>
+            <BookOpen size={38} className="mx-auto text-brand-orange mb-3" />
+            <h1 className="font-oswald text-4xl sm:text-5xl md:text-6xl font-bold !text-white uppercase tracking-wide mb-3">
+              ENGINEERING <span className="text-brand-orange">INSIGHTS</span>
+            </h1>
+            <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto font-light leading-relaxed">
+              Technical guidance, local construction costs, and regulatory advice tailored to building in Anambra State and Nigeria.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-24 bg-brand-light-gray/30 min-h-screen">
+      <section className="py-16 sm:py-20 bg-brand-light-gray/40 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeading 
-            title="LATEST ARTICLES" 
-            subtitle="Stay informed with our comprehensive guides on building in Anambra State and across Nigeria." 
+            title="LATEST TECHNICAL ARTICLES" 
+            subtitle="Authoritative construction advice and cost analysis from MATROCK ENGINEERING COMPANY NIG LTD." 
           />
 
           {/* Featured Post */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 mb-16"
+            className="mt-10 mb-12"
           >
-            <Link to={`/blog/${featuredPost.slug}`} className="group flex flex-col lg:flex-row bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-brand-border">
-              <div className="lg:w-3/5 h-64 lg:h-auto relative overflow-hidden">
+            <Link to={`/blog/${featuredPost.slug}`} className="group flex flex-col lg:flex-row bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-xl transition-all border border-slate-200">
+              <div className="lg:w-3/5 h-64 sm:h-72 lg:h-auto relative overflow-hidden bg-brand-charcoal">
                 <img 
                   src={featuredPost.image} 
                   alt={featuredPost.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute top-6 left-6 bg-brand-orange text-white text-xs font-oswald font-semibold uppercase tracking-wider px-4 py-2 rounded-full">
+                <div className="absolute top-4 left-4 bg-brand-orange text-white text-xs font-oswald font-semibold uppercase tracking-wider px-3 py-1.5 rounded-md">
                   {featuredPost.category}
                 </div>
               </div>
-              <div className="lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center">
-                <div className="flex items-center gap-4 text-brand-medium-gray text-sm mb-4">
-                  <div className="flex items-center gap-1.5"><Calendar size={16} />{featuredPost.date}</div>
-                  <div className="flex items-center gap-1.5"><User size={16} />{featuredPost.author}</div>
+              <div className="lg:w-2/5 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+                <div className="flex items-center gap-2.5 text-brand-medium-gray text-xs mb-3 font-light">
+                  <div className="flex items-center gap-1"><Calendar size={13} className="text-brand-orange" />{featuredPost.date}</div>
+                  <span>·</span>
+                  <div className="flex items-center gap-1"><User size={13} className="text-brand-orange" />{featuredPost.author}</div>
                 </div>
-                <h3 className="font-oswald text-2xl lg:text-3xl font-bold text-brand-charcoal mb-4 group-hover:text-brand-orange transition-colors">
+                <h3 className="font-oswald text-xl sm:text-2xl font-bold text-brand-charcoal mb-3 group-hover:text-brand-orange transition-colors leading-snug">
                   {featuredPost.title}
                 </h3>
-                <p className="text-brand-medium-gray leading-relaxed mb-8">
+                <p className="text-brand-medium-gray text-xs sm:text-sm leading-relaxed mb-6 font-light">
                   {featuredPost.excerpt}
                 </p>
-                <div className="text-brand-orange font-oswald font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
-                  READ FULL ARTICLE <ArrowRight size={20} />
+                <div className="text-brand-orange font-oswald text-xs font-semibold tracking-wider uppercase flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                  READ COMPLETE ARTICLE <ArrowRight size={14} />
                 </div>
               </div>
             </Link>
           </motion.div>
 
           {/* Regular Posts Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularPosts.map((post, idx) => (
               <motion.div 
                 key={post.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: idx * 0.06 }}
               >
-                <Link to={`/blog/${post.slug}`} className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-brand-border">
-                  <div className="h-56 relative overflow-hidden">
+                <Link to={`/blog/${post.slug}`} className="group flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-xs hover:shadow-lg transition-all border border-slate-200">
+                  <div className="h-48 sm:h-52 relative overflow-hidden bg-brand-charcoal">
                     <img 
                       src={post.image} 
                       alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-brand-charcoal text-white text-xs font-oswald font-medium uppercase tracking-wider px-3 py-1.5 rounded-full">
+                    <div className="absolute top-3.5 left-3.5 bg-brand-charcoal text-white text-[11px] font-oswald font-medium uppercase tracking-wider px-2.5 py-1 rounded-md">
                       {post.category}
                     </div>
                   </div>
-                  <div className="p-8 flex flex-col flex-grow">
-                    <div className="flex items-center gap-4 text-brand-medium-gray text-sm mb-4">
-                      <div className="flex items-center gap-1.5"><Calendar size={14} />{post.date}</div>
+                  <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 text-brand-medium-gray text-xs mb-2.5 font-light">
+                        <div className="flex items-center gap-1"><Calendar size={12} className="text-brand-orange" />{post.date}</div>
+                        <span>·</span>
+                        <div className="flex items-center gap-1"><User size={12} className="text-brand-orange" />{post.author}</div>
+                      </div>
+                      <h3 className="font-oswald text-base sm:text-lg font-bold text-brand-charcoal mb-2 group-hover:text-brand-orange transition-colors leading-snug">
+                        {post.title}
+                      </h3>
+                      <p className="text-brand-medium-gray text-xs sm:text-sm leading-relaxed mb-4 font-light">
+                        {post.excerpt}
+                      </p>
                     </div>
-                    <h3 className="font-oswald text-xl font-bold text-brand-charcoal mb-3 group-hover:text-brand-orange transition-colors leading-tight">
-                      {post.title}
-                    </h3>
-                    <p className="text-brand-medium-gray text-sm leading-relaxed mb-6 flex-grow">
-                      {post.excerpt}
-                    </p>
-                    <div className="text-brand-orange text-sm font-oswald font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
-                      READ MORE <ArrowRight size={16} />
+                    <div className="text-brand-orange text-xs font-oswald font-semibold tracking-wider uppercase flex items-center gap-1 group-hover:gap-2 transition-all mt-auto pt-2 border-t border-slate-100">
+                      READ ARTICLE <ArrowRight size={13} />
                     </div>
                   </div>
                 </Link>

@@ -10,11 +10,11 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ title, subtitle, align = 'center', light = false }: SectionHeadingProps) {
   return (
-    <div className={cn('mb-12 md:mb-16', align === 'center' ? 'text-center' : 'text-left')}>
+    <div className={cn('mb-10 sm:mb-14', align === 'center' ? 'text-center' : 'text-left')}>
       <h2 
         className={cn(
-          'font-oswald text-3xl md:text-4xl lg:text-5xl font-semibold uppercase tracking-wide mb-4',
-          light ? 'text-white' : 'text-brand-charcoal'
+          'font-oswald text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wide leading-tight',
+          light ? '!text-white' : 'text-brand-charcoal'
         )}
       >
         {title}
@@ -22,9 +22,9 @@ export function SectionHeading({ title, subtitle, align = 'center', light = fals
       {subtitle && (
         <p 
           className={cn(
-            'font-open-sans text-base md:text-lg max-w-3xl leading-relaxed',
+            'font-open-sans text-sm sm:text-base max-w-2xl leading-relaxed mt-2.5',
             align === 'center' ? 'mx-auto' : '',
-            light ? 'text-brand-light-gray/80' : 'text-brand-medium-gray'
+            light ? 'text-slate-300 font-light' : 'text-brand-medium-gray'
           )}
         >
           {subtitle}
@@ -32,7 +32,7 @@ export function SectionHeading({ title, subtitle, align = 'center', light = fals
       )}
       <div 
         className={cn(
-          'h-1.5 w-16 bg-brand-orange mt-6 rounded-full',
+          'h-1 w-12 bg-gradient-to-r from-brand-orange to-brand-gold mt-4 rounded-full',
           align === 'center' ? 'mx-auto' : ''
         )}
       ></div>

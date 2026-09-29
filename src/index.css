@@ -1,25 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-orange: #2563EB;
-  --color-brand-charcoal: #0F172A;
-  --color-brand-dark-gray: #334155;
+  --color-brand-orange: #D9822B;
+  --color-brand-gold: #E59535;
+  --color-brand-petrol: #0B3B3B;
+  --color-brand-teal-dark: #072525;
+  --color-brand-teal-surface: #104343;
+  --color-brand-charcoal: #0B1E1E;
+  --color-brand-dark-gray: #1E293B;
   --color-brand-medium-gray: #64748B;
   --color-brand-light-gray: #F8FAFC;
   --color-brand-border: #E2E8F0;
 
-  --font-oswald: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-open-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-oswald: "Oswald", ui-sans-serif, system-ui, sans-serif;
+  --font-open-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth antialiased;
+    text-rendering: optimizeLegibility;
   }
   body {
     @apply font-open-sans text-brand-dark-gray bg-[#F8FAFC];
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-oswald text-brand-charcoal;
+    @apply font-oswald text-brand-charcoal tracking-wide;
   }
 }
