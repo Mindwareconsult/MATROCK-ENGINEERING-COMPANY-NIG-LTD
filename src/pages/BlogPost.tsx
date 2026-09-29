@@ -90,9 +90,9 @@ export function BlogPost() {
                 <Link to="/contact" className="inline-block bg-brand-orange text-white font-oswald font-semibold px-7 py-3 rounded-lg hover:bg-white hover:text-brand-charcoal transition-colors tracking-wide text-sm">
                   REQUEST A CONSULTATION
                 </Link>
-                <a href="tel:08061294537" className="inline-flex items-center gap-2 bg-white/10 text-white font-oswald font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-colors tracking-wide text-sm border border-white/20">
+                <a href="tel:07037823288" className="inline-flex items-center gap-2 bg-white/10 text-white font-oswald font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-colors tracking-wide text-sm border border-white/20">
                   <Phone size={16} />
-                  0806 129 4537
+                  0703 782 3288
                 </a>
               </div>
             </div>
@@ -128,7 +128,7 @@ export function BlogPost() {
                   HEAD OFFICE
                 </h4>
                 <p className="text-brand-medium-gray text-xs leading-relaxed mb-4">
-                  153 Ziks Avenue, Awka 420109, Anambra State, Nigeria
+                  Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra
                 </p>
                 <Link to="/contact" className="w-full text-center block bg-slate-100 text-brand-charcoal hover:bg-brand-orange hover:text-white font-oswald font-semibold text-xs py-2.5 rounded-lg transition-colors tracking-wide uppercase">
                   GET IN TOUCH

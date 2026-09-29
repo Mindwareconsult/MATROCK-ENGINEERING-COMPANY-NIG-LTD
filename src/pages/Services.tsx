@@ -188,11 +188,11 @@ export function Services() {
               REQUEST A QUOTE
             </Link>
             <a 
-              href="tel:08061294537" 
+              href="tel:07037823288" 
               className="bg-white/10 border border-white/20 text-white font-oswald font-semibold px-8 py-3.5 text-sm rounded-lg shadow-sm hover:bg-white/20 transition-all tracking-wider uppercase inline-flex items-center justify-center gap-2"
             >
               <Phone size={16} />
-              CALL 0806 129 4537
+              CALL 0703 782 3288
             </a>
           </div>
         </div>

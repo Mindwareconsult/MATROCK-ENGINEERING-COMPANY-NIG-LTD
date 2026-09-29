@@ -270,7 +270,7 @@ export function Home() {
               
               <div className="space-y-4 text-brand-medium-gray text-sm sm:text-base leading-relaxed mb-7 font-light">
                 <p>
-                  <strong>MATROCK ENGINEERING COMPANY NIG LTD</strong> is an indigenous civil and structural engineering contracting firm headquartered at <strong>153 Ziks Avenue, Awka 420109, Anambra State, Nigeria</strong>.
+                  <strong>MATROCK ENGINEERING COMPANY NIG LTD</strong> is an indigenous civil and structural engineering contracting firm headquartered at <strong>Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra</strong>.
                 </p>
                 <p>
                   From structural substructure engineering and reinforced concrete decks to full-scale commercial facilities, residential properties, and roof framing, our work is defined by strict adherence to technical standards, safety, and sound engineering principles.
@@ -636,10 +636,10 @@ export function Home() {
                 REQUEST A PROJECT ESTIMATE
               </Link>
               <a 
-                href="tel:08061294537" 
+                href="tel:07037823288" 
                 className="bg-white/10 border border-white/20 text-white font-oswald font-semibold px-8 py-3.5 text-sm rounded-lg shadow-sm hover:bg-white/20 transition-colors tracking-wider uppercase inline-flex items-center justify-center gap-2"
               >
-                CALL 0806 129 4537
+                CALL 0703 782 3288
               </a>
           </div>
         </motion.div>
@@ -673,7 +673,7 @@ export function Home() {
                   </div>
                   <div>
                     <h4 className="font-oswald text-sm font-semibold text-brand-charcoal tracking-wide mb-0.5 uppercase">TELEPHONE</h4>
-                    <p className="text-brand-medium-gray text-xs">0806 129 4537</p>
+                    <p className="text-brand-medium-gray text-xs">0703 782 3288</p>
                   </div>
                 </div>
 
@@ -694,7 +694,7 @@ export function Home() {
                   <div>
                     <h4 className="font-oswald text-sm font-semibold text-brand-charcoal tracking-wide mb-0.5 uppercase">HEAD OFFICE</h4>
                     <p className="text-brand-medium-gray text-xs leading-relaxed">
-                      153 Ziks Avenue, Awka 420109, Anambra State, Nigeria
+                      Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra
                     </p>
                   </div>
                 </div>
@@ -773,10 +773,10 @@ export function Home() {
               MATROCK ENGINEERING HEADQUARTERS
             </h3>
             <p className="text-brand-medium-gray text-xs mb-5 font-light">
-              153 Ziks Avenue, Awka 420109, Anambra State, Nigeria
+              Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra
             </p>
             <a 
-              href="https://maps.google.com/?q=153+Ziks+Avenue,+Awka,+Anambra+State,+Nigeria" 
+              href="https://maps.google.com/?q=Commissioner%27s+Quarters%2C+Esther+Obuakor+Rd%2C+Awka+420112%2C+Anambra" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-block bg-brand-charcoal text-white font-oswald font-semibold text-xs px-5 py-2.5 rounded-lg shadow-xs hover:bg-brand-orange transition-colors tracking-wider uppercase"

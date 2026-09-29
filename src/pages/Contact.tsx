@@ -63,9 +63,9 @@ export function Contact() {
                       HEADQUARTERS
                     </h4>
                     <p className="text-brand-medium-gray text-xs sm:text-sm leading-relaxed font-light">
-                      153 Ziks Avenue,<br />
-                      Awka 420109,<br />
-                      Anambra State, Nigeria
+                      Commissioner's Quarters,<br />
+                      Esther Obuakor Rd,<br />
+                      Awka 420112, Anambra
                     </p>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export function Contact() {
                       TELEPHONE
                     </h4>
                     <p className="text-brand-medium-gray text-xs sm:text-sm leading-relaxed font-light">
-                      <a href="tel:08061294537" className="hover:text-brand-orange transition-colors">0806 129 4537</a>
+                      <a href="tel:07037823288" className="hover:text-brand-orange transition-colors">0703 782 3288</a>
                     </p>
                     <div className="flex items-center gap-1.5 text-xs text-brand-medium-gray/80 mt-1 font-light">
                       <Clock size={12} className="text-brand-orange" />
@@ -220,10 +220,10 @@ export function Contact() {
             MATROCK HEADQUARTERS
           </h3>
           <p className="text-brand-medium-gray text-xs mb-5 font-light leading-relaxed">
-            153 Ziks Avenue, Awka 420109, Anambra State, Nigeria
+            Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra
           </p>
           <a 
-            href="https://maps.google.com/?q=153+Ziks+Avenue,+Awka,+Anambra+State,+Nigeria" 
+            href="https://maps.google.com/?q=Commissioner%27s+Quarters%2C+Esther+Obuakor+Rd%2C+Awka+420112%2C+Anambra" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="w-full inline-block bg-brand-charcoal text-white font-oswald font-semibold text-xs px-5 py-3 rounded-lg hover:bg-brand-orange transition-colors tracking-wider uppercase shadow-xs"

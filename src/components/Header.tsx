@@ -165,10 +165,10 @@ export function Header() {
                 REQUEST A PROJECT QUOTE
               </Link>
               <a
-                href="tel:08061294537"
+                href="tel:07037823288"
                 className="flex items-center justify-center gap-2 border border-slate-200 text-slate-700 font-oswald font-medium py-2.5 rounded-lg text-xs tracking-wider"
               >
-                <PhoneCall size={14} className="text-brand-orange" /> CALL 0806 129 4537
+                <PhoneCall size={14} className="text-brand-orange" /> CALL 0703 782 3288
               </a>
             </div>
           </nav>

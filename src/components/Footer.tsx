@@ -110,11 +110,11 @@ export function Footer() {
             <ul className="space-y-3.5 text-sm text-slate-300 font-light">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-brand-orange mt-0.5 shrink-0" />
-                <span className="leading-relaxed">153 Ziks Avenue, Awka 420109, Anambra State, Nigeria</span>
+                <span className="leading-relaxed">Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-brand-orange shrink-0" />
-                <a href="tel:08061294537" className="hover:text-brand-orange transition-colors">0806 129 4537</a>
+                <a href="tel:07037823288" className="hover:text-brand-orange transition-colors">0703 782 3288</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-orange shrink-0" />

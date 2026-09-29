@@ -74,7 +74,7 @@ export function About() {
               
               <div className="space-y-4 text-brand-medium-gray text-sm sm:text-base leading-relaxed font-light">
                 <p>
-                  <strong>MATROCK ENGINEERING COMPANY NIG LTD</strong> is an indigenous civil and structural engineering construction contractor headquartered at <strong>153 Ziks Avenue, Awka 420109, Anambra State, Nigeria</strong>.
+                  <strong>MATROCK ENGINEERING COMPANY NIG LTD</strong> is an indigenous civil and structural engineering construction contractor headquartered at <strong>Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra</strong>.
                 </p>
                 <p>
                   We execute building construction, reinforced concrete frame engineering, commercial plazas, residential developments, and substructure civil works. Grounded in Anambra State, we bring technical precision and environmental awareness to every site, accounting for regional soil characteristics, hydrological conditions, and structural load calculations.
@@ -282,7 +282,7 @@ export function About() {
             DISCUSS YOUR BUILDING PLANS IN ANAMBRA
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-xl mx-auto font-light">
-            Visit our corporate office at <strong>153 Ziks Avenue, Awka 420109</strong>, or speak directly with our engineering team for advice and estimates.
+            Visit our corporate office at <strong>Commissioner's Quarters, Esther Obuakor Rd, Awka 420112, Anambra</strong>, or speak directly with our engineering team for advice and estimates.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3.5">
              <Link 
@@ -292,11 +292,11 @@ export function About() {
                 SCHEDULE A CONSULTATION
               </Link>
               <a 
-                href="tel:08061294537" 
+                href="tel:07037823288" 
                 className="bg-white/10 border border-white/20 text-white font-oswald font-semibold px-8 py-3.5 text-sm rounded-lg shadow-sm hover:bg-white/20 transition-all tracking-wider uppercase inline-flex items-center justify-center gap-2"
               >
                 <Phone size={16} />
-                0806 129 4537
+                0703 782 3288
               </a>
           </div>
         </motion.div>
